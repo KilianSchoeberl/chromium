@@ -57,7 +57,7 @@
 
 ---
 
-إذا تريد ترجمة أو تنسيق إضافي، فقط أخبرني!
+
 
 ![Download](https://github.com/user-attachments/assets/513b124c-4855-4774-9953-eadc65cbb151)
 
