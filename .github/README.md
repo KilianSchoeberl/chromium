@@ -1,56 +1,65 @@
-# GitHub Copilot Integration in Chromium
+بالتأكيد! إليك النص مترجمًا إلى العربية مع التنسيق المناسب:
 
-This directory provides instructions and prompts for integrating GitHub Copilot
-with the chromium codebase.
+---
 
-This directory is currently in a prototyping state and may be removed in the
-future. As we add support for multiple coding IDE/agents, we will likely pull
-common prompts and instructions into a central directory with stubs for bespoke
-IDE/agent integration. Please check with your organization before using GitHub
-Copilot.
+# دمج GitHub Copilot في Chromium
 
-## Where is copilot-instructions.md?
-[`copilot-intructions.md`](../copilot-instructions.md) is typically a single
-instruction file that contains default instructions for a workspace. These
-instructions are automatically included in every chat request.
+يوفر هذا الدليل تعليمات ونصوصاً لإدماج GitHub Copilot مع قاعدة شفرة Chromium.
 
-Until the prompt in `copilot-intructions.md` is generally agreed upon for the
-chromium repo, this file is intentionally excluded from the repo, and added to
-the [.gitignore](../.gitignore) for your customization.
+هذا الدليل حالياً في حالة تجريبية (Prototype) وقد يتم حذفه في المستقبل. مع إضافة دعم لعدة بيئات تطوير متكاملة (IDE) ووكلاء برمجة، من المحتمل أن نجمع التعليمات والنصوص الشائعة في مجلد مركزي مع نماذج لإدماج بيئات التطوير الخاصة. يرجى التأكد من جهتك قبل استخدام GitHub Copilot.
 
-For generating your own `copilot-intructions.md`, type
-`/create_copilot_instructions` in GitHub Copilot to get started.
+---
 
-## Code Layout
-- [.github/instructions](./instructions/): Custom instructions for specific
-  tasks. For example, you can create instruction files for different programming
-  languages, frameworks, or project types. You can attach individual prompt
-  files to a chat request, or you can configure them to be automatically
-  included for specific files or folders with `applyTo` syntax.
-- [.github/prompts](./prompts/): Prompt files can be easily triggered from chat
-  with `/` and allow you to craft complete prompts in Markdown files.
-  Unlike custom instructions that supplement your chat queries prompts, prompt
-  files are standalone prompts that you can store within your workspace and
-  share with others. With prompt files, you can create reusable templates for
-  common tasks, store domain expertise in the codebase, and standardize AI
-  interactions across your team.
-- [.github/resources](./resources/): Prompt files that are resources for use by
-  other prompts and instructions.
+## أين يوجد ملف copilot-instructions.md؟
 
-## User Specific Prompts
-Users can create their own prompts or instructions that match the regex
-`.github/**/user_.md` which is captured in the [.gitignore](../.gitignore).
+عادةً ما يكون [`copilot-instructions.md`](../copilot-instructions.md) ملف تعليمات واحد يحتوي على التعليمات الافتراضية لمساحة العمل.
+يتم تضمين هذه التعليمات تلقائياً في كل طلب محادثة.
 
-## Contributing Guidelines
-Use `/git_commit_ghc`
+حتى يتم الاتفاق على النص في `copilot-instructions.md` لاستخدامه في مستودع Chromium، يتم استبعاد هذا الملف عمداً من المستودع وإضافته إلى ملف [.gitignore](../.gitignore) لتتمكن من تخصيصه.
 
-- [.github/instructions](./instructions/): Instructions that are automatically
-  picked up using `applyTo` syntax will have a much higher review bar then those
-  without it.
-- [.github/prompts](./prompts/): All prompts should specify a `mode` and
-  `description`.
-- [.github/resources](./resources/): All prompt resources should have an active
-  reference or usecase a file in `instructions` or `prompts`, and should be
-  cleaned up if their references are modified or removed.
+لإنشاء ملف `copilot-instructions.md` خاص بك، اكتب الأمر التالي في GitHub Copilot للبدء:
+
+```
+/create_copilot_instructions
+```
+
+---
+
+## هيكلة الأكواد
+
+* [.github/instructions](./instructions/): تعليمات مخصصة لمهام محددة.
+  على سبيل المثال، يمكنك إنشاء ملفات تعليمات للغات برمجة أو أُطُر عمل أو أنواع مشاريع مختلفة.
+  يمكنك إرفاق ملفات نصوص منفردة لطلب المحادثة، أو يمكنك ضبطها لتضمينها تلقائياً لملفات أو مجلدات معينة باستخدام تركيب `applyTo`.
+
+* [.github/prompts](./prompts/): ملفات النصوص التي يمكن استدعاؤها بسهولة من المحادثة باستخدام `/` وتسمح لك بكتابة نصوص كاملة بصيغة Markdown.
+  بخلاف التعليمات المخصصة التي تدعم استفسارات المحادثة، فإن ملفات النصوص هي نصوص مستقلة يمكن تخزينها في مساحة العمل ومشاركتها مع الآخرين.
+  باستخدام ملفات النصوص، يمكنك إنشاء قوالب قابلة لإعادة الاستخدام للمهام الشائعة، وتخزين الخبرات في قاعدة الشفرة، وتوحيد التفاعل مع الذكاء الاصطناعي عبر فريقك.
+
+* [.github/resources](./resources/): ملفات النصوص التي تعتبر موارد للاستخدام في نصوص وتعليمات أخرى.
+
+---
+
+## نصوص خاصة بالمستخدم
+
+يمكن للمستخدمين إنشاء نصوص أو تعليمات خاصة بهم تطابق التعبير النمطي `.github/**/user_.md` والمُدرَجة في ملف [.gitignore](../.gitignore).
+
+---
+
+## إرشادات المساهمة
+
+استخدم الأمر:
+
+```
+/git_commit_ghc
+```
+
+* [.github/instructions](./instructions/): التعليمات التي يتم تضمينها تلقائياً باستخدام تركيب `applyTo` تخضع لمعايير مراجعة أعلى من تلك التي بدونها.
+* [.github/prompts](./prompts/): يجب أن تحدد جميع النصوص خاصيتي `mode` و `description`.
+* [.github/resources](./resources/): يجب أن تحتوي كل موارد النصوص على مرجع أو حالة استخدام نشطة في ملفات `instructions` أو `prompts`، ويجب تنظيفها إذا تم تعديل أو حذف هذه المراجع.
+
+---
+
+إذا تريد ترجمة أو تنسيق إضافي، فقط أخبرني!
+
 
   - This shit cant be real 
